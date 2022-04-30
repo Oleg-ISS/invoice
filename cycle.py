@@ -6,6 +6,7 @@ def(str)
     #открываем таблицу DB.xlsx для поиска в ней нужной строки
     book = openpyxl.load_workbook("DB.xlsx", read_only=true)
     #получаем количество строк на рабочем листе
+    i = book.max_row
     #запускаем цикл поиска подходящей строки
     #если строка найдена , то запускаем функцию создания строки в файле moysklad.xlsx
     # Close the workbook after reading

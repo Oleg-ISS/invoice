@@ -4,7 +4,9 @@
 #функция ищет подходящую под шаблон ячейку и возвращает ее номер
 def(str)
     #открываем таблицу DB.xlsx для поиска в ней нужной строки
-    book = openpyxl.open("DB.xlsx", read_only=true)
+    book = openpyxl.load_workbook("DB.xlsx", read_only=true)
+    #получаем количество строк на рабочем листе
     #запускаем цикл поиска подходящей строки
     #если строка найдена , то запускаем функцию создания строки в файле moysklad.xlsx
-
+    # Close the workbook after reading
+    openpyxl.close()

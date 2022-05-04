@@ -1,6 +1,6 @@
 import openpyxl 
 import re
-def pattern():
+def creating_template():
     #берем название изделия
     #извлекаем содержимое ячейки sheet.cell(row=r, column=c).value
     r=1
@@ -50,4 +50,4 @@ def pattern():
     #Close the workbook after reading
     openpyxl.close()
     return item + ' ' + size + ' ' + material
-print(pattern())
+print(creating_template())

@@ -4,7 +4,7 @@ def pattern():
     #извлекаем содержимое ячейки sheet.cell(row=r, column=c).value
     r=1
     c=1
-    book = openpyxl.open("invoice.xlsx", read_only=True)
+    book = openpyxl.load_workbook("invoice.xlsx", read_only=True)
     sheet = book.active
     print(sheet.cell(row=r, column=c).value)
     print(re.sub('O-ring','Кольцо круглого сечения',sheet.cell(row=r, column=c).value))

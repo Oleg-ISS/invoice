@@ -10,6 +10,7 @@ def searching(str)
     #получаем количество строк на рабочем листе
     i = book.max_row
     #запускаем цикл поиска подходящей строки
+    for row in range(1,i):
     #если строка найдена , то запускаем функцию создания строки в файле moysklad.xlsx
     # Close the workbook after reading
     openpyxl.close()

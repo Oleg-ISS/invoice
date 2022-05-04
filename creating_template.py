@@ -48,6 +48,6 @@ def creating_template():
     #
     #объединяем название товара и шаблон размера в одну строку
     #Close the workbook after reading
-    openpyxl.close()
+    book.close()
     return item + ' ' + size + ' ' + material
 print(creating_template())

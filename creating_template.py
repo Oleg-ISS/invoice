@@ -47,5 +47,5 @@ def pattern():
     #
     #
     #объединяем название товара и шаблон размера в одну строку
-    return item + ' ' + size
+    return item + ' ' + size + material
 print(pattern())

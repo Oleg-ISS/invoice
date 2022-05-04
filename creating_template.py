@@ -47,5 +47,7 @@ def pattern():
     #
     #
     #объединяем название товара и шаблон размера в одну строку
-    return item + ' ' + size + material
+    #Close the workbook after reading
+    openpyxl.close()
+    return item + ' ' + size + ' ' + material
 print(pattern())

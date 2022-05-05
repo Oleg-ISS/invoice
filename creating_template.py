@@ -1,5 +1,6 @@
 import openpyxl 
 import re
+#title-это колонка item в файле invoice.xlsx
 def creating_template():
     #берем название изделия
     #извлекаем содержимое ячейки sheet.cell(row=r, column=c).value

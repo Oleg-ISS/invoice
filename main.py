@@ -1,8 +1,19 @@
 import openpyxl 
 import re
 #обьявляем функции
+def creating_template(nazvanie,razmer,material):
+    item = re.sub('O-ring','Кольцо круглого сечения',nazvanie)
+    item = re.sub('Oil Seal','Манжета армированная',nazvanie)
+    size = re.sub('х',r'\\D',razmer)
+    size = re.sub('\*',r'\\D',razmer)
+    return item + ' ' + size + ' ' + material
+#открываем файлы
+book = openpyxl.load_workbook("invoice.xlsx", read_only=True)
+sheet = book.active
+#получаем количество строк на рабочем листе
+i = sheet.max_row
 #создаем шаблон-строку для поиска по БД на основе файла invoice.xlsx 
-creating_template()
+template = creating_template(nazvanie,razmer,material)
 #запускаем функцию поска строки, которая соответствует шаблону-строке в файле DB.xlsx
 searching(template)
 #открываем на запись файл-шаблон для импорта счета в мой склад

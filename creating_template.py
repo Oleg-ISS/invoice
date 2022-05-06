@@ -5,12 +5,12 @@ def creating_template():
     #извлекаем содержимое ячейки sheet.cell(row=r, column=c).value
     r=1
     c=1
-    book = openpyxl.load_workbook("invoice.xlsx", read_only=True)
-    sheet = book.active
+    book_invoice = openpyxl.load_workbook("invoice.xlsx", read_only=True)
+    sheet_invoice = book.active
     print(sheet.cell(row=r, column=c).value)
     #По очереди пытаемся заменить название изделия с поставщика на наше, если получиться то меняем если нет то остается как было
-    item = re.sub('O-ring','Кольцо круглого сечения',sheet.cell(row=r, column=c).value)
-    item = re.sub('Oil Seal','Манжета армированная',sheet.cell(row=r, column=c).value)
+    item = re.sub('O-ring','Кольцо круглого сечения',sheet_invoice.cell(row=r, column=c).value)
+    item = re.sub('Oil Seal','Манжета армированная',sheet_invoice.cell(row=r, column=c).value)
     print(item)
     #
     #
@@ -18,7 +18,7 @@ def creating_template():
     #берем размер
     #берем из ячейки sheet.cell(row=r, column=c+1).value содержимое, это строковая переменная
 
-    size = sheet.cell(row=r, column=c+1).value
+    size = sheet_invoice.cell(row=r, column=c+1).value
     print('Содержимое ячейки ',size)
     print(type(size))
     #меняем в этой переменной символ "x" на символ "\D"
@@ -43,7 +43,7 @@ def creating_template():
     #
     #
     #берем материал
-    material = sheet.cell(row=r, column=c+2).value
+    material = sheet_invoice.cell(row=r, column=c+2).value
     #
     #
     #объединяем название товара и шаблон размера в одну строку

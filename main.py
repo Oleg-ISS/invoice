@@ -4,7 +4,7 @@ import re
 #открываем файлы
 r=1
 c=1
-book_invoice = openpyxl.load_workbook("invoice.xlsx", read_only=True)
+book_invoice = openpyxl.load_workbook("invoice.xlsx")#открываем файл invoice.xlsx на чтение и запись
 sheet_invoice = book.active
 #получаем количество строк на рабочем листе
 i = sheet_invoice.max_row

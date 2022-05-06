@@ -9,13 +9,15 @@ sheet_invoice = book.active
 #получаем количество строк на рабочем листе
 i = sheet_invoice.max_row
 for row in range(1,i+1):
+    #обнуляем new_string
+    new_string =0
     nazvanie = sheet_invoice.cell(row=r, column=c).value
     razmer = sheet_invoice.cell(row=r, column=c+1).value
     material = sheet_invoice.cell(row=r, column=c+2).value
     #создаем шаблон-строку для поиска по БД на основе файла invoice.xlsx 
     template = creating_template(nazvanie,razmer,material)
     #запускаем функцию поиска строки, которая соответствует шаблону-строке в файле DB.xlsx
-    searching(template)
+    new_string = searching(template)
     #открываем на запись файл-шаблон для импорта счета в мой склад
     #запускаем функцию которая создаст шаблон из строки инвойса
     #передадим шаблон в функцию поиска в базе мой склад

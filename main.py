@@ -1,9 +1,17 @@
 import openpyxl 
 import re
 #обьявляем функции
+#открываем файлы
+r=1
+c=1
+book_invoice = openpyxl.load_workbook("invoice.xlsx", read_only=True)
+sheet_invoice = book.active
+nazvanie = sheet_invoice.cell(row=r, column=c).value
+razmer = sheet_invoice.cell(row=r, column=c+1).value
+material = sheet_invoice.cell(row=r, column=c+2).value
 #создаем шаблон-строку для поиска по БД на основе файла invoice.xlsx 
-creating_template()
-#запускаем функцию поска строки, которая соответствует шаблону-строке в файле DB.xlsx
+creating_template(nazvanie,razmer,material)
+#запускаем функцию поиска строки, которая соответствует шаблону-строке в файле DB.xlsx
 searching(template)
 #открываем на запись файл-шаблон для импорта счета в мой склад
 #запускаем функцию которая создаст шаблон из строки инвойса

@@ -2,7 +2,7 @@
 #функция принимает строку шаблон
 #функция
 #функция ищет подходящую под шаблон ячейку и возвращает ее номер
-def searching(template)
+def searching(template,i)
     r = 1
     с = 3
     #открываем таблицу DB.xlsx для поиска в ней нужной строки
@@ -22,7 +22,7 @@ def searching(template)
         #если строка найдена match не равен 0, то запускаем функцию creating_string_in_template_file() создания строки в файле moysklad.xlsx
         if match == 0:
             #
-            creating_dont_search_string(r)
+            creating_dont_search_string(i)
         if match != 0:
             creating_string_in_template_file()
     # Close the workbook after reading

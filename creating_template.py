@@ -7,7 +7,7 @@ def creating_template():
     c=1
     book_invoice = openpyxl.load_workbook("invoice.xlsx", read_only=True)
     sheet_invoice = book_invoice.active
-    print(sheet.cell(row=r, column=c).value)
+    print(sheet_invoice.cell(row=r, column=c).value)
     #По очереди пытаемся заменить название изделия с поставщика на наше, если получиться то меняем если нет то остается как было
     item = re.sub('O-ring','Кольцо круглого сечения',sheet_invoice.cell(row=r, column=c).value)
     item = re.sub('Oil Seal','Манжета армированная',sheet_invoice.cell(row=r, column=c).value)

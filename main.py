@@ -4,16 +4,15 @@ import re
 #открываем файлы
 r=1
 c=1
-i_main = 0
+i_main = 0 #счетчик итераций для фукции searching()
 #открываем таблицу invoice.xlsx
 book_invoice = openpyxl.load_workbook("invoice.xlsx")#открываем файл invoice.xlsx на чтение и запись
 sheet_invoice = book.active
 #открываем таблицу DB.xlsx для поиска в ней нужной строки
 book_DB = openpyxl.load_workbook("DB.xlsx", read_only=true)
 sheet_DB = book.active
-#получаем количество строк на рабочем листе
-i = sheet_invoice.max_row
-for row in range(1,i+1):
+
+for row in range(1,sheet_invoice.max_row+1):#получаем количество строк на рабочем листе +1 чтобы учесть последнюю строку
     
     #обнуляем new_string
     new_string =0

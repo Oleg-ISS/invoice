@@ -13,7 +13,7 @@ book_DB = openpyxl.load_workbook("DB.xlsx", read_only=true)
 sheet_DB = book.active
 
 for row in range(1,sheet_invoice.max_row+1):#получаем количество строк на рабочем листе +1 чтобы учесть последнюю строку
-    
+    i_main = i_main + 1
     #обнуляем new_string
     new_string =0
     nazvanie = sheet_invoice.cell(row=r, column=c).value

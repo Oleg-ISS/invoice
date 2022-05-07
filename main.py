@@ -4,11 +4,17 @@ import re
 #открываем файлы
 r=1
 c=1
+i_main = 0
+#открываем таблицу invoice.xlsx
 book_invoice = openpyxl.load_workbook("invoice.xlsx")#открываем файл invoice.xlsx на чтение и запись
 sheet_invoice = book.active
+#открываем таблицу DB.xlsx для поиска в ней нужной строки
+book_DB = openpyxl.load_workbook("DB.xlsx", read_only=true)
+sheet_DB = book.active
 #получаем количество строк на рабочем листе
 i = sheet_invoice.max_row
 for row in range(1,i+1):
+    
     #обнуляем new_string
     new_string =0
     nazvanie = sheet_invoice.cell(row=r, column=c).value
@@ -17,7 +23,7 @@ for row in range(1,i+1):
     #создаем шаблон-строку для поиска по БД на основе файла invoice.xlsx 
     template = creating_template(nazvanie,razmer,material)
     #запускаем функцию поиска строки, которая соответствует шаблону-строке в файле DB.xlsx
-    new_string = searching(template,row)
+    new_string = searching(template)
     #открываем на запись файл-шаблон для импорта счета в мой склад
     #запускаем функцию которая создаст шаблон из строки инвойса
     #передадим шаблон в функцию поиска в базе мой склад

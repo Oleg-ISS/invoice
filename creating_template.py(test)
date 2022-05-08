@@ -1,6 +1,7 @@
 import re
 def creating_template(nazvanie,razmer,material):
     item = re.sub('O-ring','Кольцо круглого сечения',nazvanie)
+    if item == nazvanie:
     item = re.sub('Oil Seal','Манжета армированная',nazvanie)
     size = re.sub('x',r'\\D',razmer)
     size = re.sub('\*',r'\\D',razmer)

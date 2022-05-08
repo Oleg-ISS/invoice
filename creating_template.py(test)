@@ -5,4 +5,5 @@ def creating_template(nazvanie,razmer,material):
     size = re.sub('x',r'\\D',razmer)
     size = re.sub('\*',r'\\D',razmer)
     return item + ' ' + size + ' ' + material
-creating_template(O-ring,14*28*7,FKM)
+print(creating_template(O-ring,14*28*7,FKM))
+

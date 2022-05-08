@@ -9,3 +9,12 @@ def creating_template(nazvanie,razmer,material):
     size = re.sub('x',r'\\D',razmer)
     size = re.sub('\*',r'\\D',razmer)
     return item + ' ' + size + ' ' + material
+r=1
+c=1
+i_main = 0 #счетчик итераций для фукции searching()
+#открываем таблицу invoice.xlsx
+book_invoice = openpyxl.load_workbook("invoice.xlsx")#открываем файл invoice.xlsx на чтение и запись
+sheet_invoice = book.active
+#открываем таблицу DB.xlsx для поиска в ней нужной строки
+book_DB = openpyxl.load_workbook("DB.xlsx", read_only=true)
+sheet_DB = book.active

@@ -27,8 +27,9 @@ for row in range(1,sheet_invoice.max_row+1):#получаем количеств
     material = sheet_invoice.cell(row, column=c+2).value
     #создаем шаблон-строку для поиска по БД на основе файла invoice.xlsx 
     template = creating_template(nazvanie,razmer,material)
+    print(template)
     #запускаем функцию поиска строки, которая соответствует шаблону-строке в файле DB.xlsx
-    new_string = searching(template)
+    #new_string = searching(template)
     #открываем на запись файл-шаблон для импорта счета в мой склад
     #запускаем функцию которая создаст шаблон из строки инвойса
     #передадим шаблон в функцию поиска в базе мой склад

@@ -16,9 +16,9 @@ for row in range(1,sheet_invoice.max_row+1):#получаем количеств
     i_main = i_main + 1
     #обнуляем new_string
     new_string =0
-    nazvanie = sheet_invoice.cell(row=r, column=c).value
-    razmer = sheet_invoice.cell(row=r, column=c+1).value
-    material = sheet_invoice.cell(row=r, column=c+2).value
+    nazvanie = sheet_invoice.cell(row, column=c).value
+    razmer = sheet_invoice.cell(row, column=c+1).value
+    material = sheet_invoice.cell(row, column=c+2).value
     #создаем шаблон-строку для поиска по БД на основе файла invoice.xlsx 
     template = creating_template(nazvanie,razmer,material)
     #запускаем функцию поиска строки, которая соответствует шаблону-строке в файле DB.xlsx

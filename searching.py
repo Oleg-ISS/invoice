@@ -3,11 +3,9 @@
 #функция
 #функция ищет подходящую под шаблон ячейку и возвращает ее номер
 def searching(template)
-    global i_main
+    #global i_main
     r = 1
     с = 3
-    
-    
     #получаем количество строк на рабочем листе
     i = sheet_DB.max_row
     #запускаем цикл поиска подходящей строки
@@ -23,7 +21,7 @@ def searching(template)
             #
             creating_dont_search_string()
         if match != 0:
-            creating_string_in_template_file()
+            #creating_string_in_template_file()
+            print('найдена строка')
     # Close the workbook after reading
-    
     book_DB.close()

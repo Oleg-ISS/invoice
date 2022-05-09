@@ -1,5 +1,5 @@
 import openpyxl
-book = openpyxl.Workbook("/home/igor/python/test.xlsx")
+book = openpyxl.load_workbook("/home/igor/python/test.xlsx")
 sheet = book.active
-sheet[1][6] = "не найден"
+sheet['A6'] = "не найден"
 book.save("/home/igor/python/test.xlsx")

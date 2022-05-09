@@ -2,7 +2,7 @@
 #функция принимает строку шаблон
 #функция
 #функция ищет подходящую под шаблон ячейку и возвращает ее номер
-def searching(template)
+def searching(template):
     #global i_main
     r = 1
     с = 3

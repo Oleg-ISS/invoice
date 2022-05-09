@@ -21,7 +21,7 @@ def searching(template)
         #если строка найдена match не равен 0, то запускаем функцию creating_string_in_template_file() создания строки в файле moysklad.xlsx
         if match == 0:
             #
-            creating_dont_search_string(i_main)
+            creating_dont_search_string()
         if match != 0:
             creating_string_in_template_file()
     # Close the workbook after reading

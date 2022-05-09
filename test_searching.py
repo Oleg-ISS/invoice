@@ -1,4 +1,6 @@
 import re
+book_DB = openpyxl.load_workbook("DB.xlsx", read_only='true')
+sheet_DB = book_DB.active
 def searching(template):
     #global i_main
     r = 1

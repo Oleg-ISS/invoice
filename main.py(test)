@@ -8,7 +8,7 @@ def creating_template(nazvanie,razmer,material):
         item = re.sub('O-ring','Кольцо круглого сечения',nazvanie)
     size = re.sub('x',r'\\D',razmer)
     size = re.sub('\*',r'\\D',razmer)
-    return item + ' ' + size + ' ' + material
+    return item + ' ' + material  + ' ' + size 
 def creating_dont_search_string():
     global sheet_invoice
     sheet_invoice[coordinates] = "не найден"#записываем в ячейку в колонке G

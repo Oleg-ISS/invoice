@@ -1,5 +1,6 @@
 import openpyxl
 book = openpyxl.load_workbook("/home/igor/python/test.xlsx")
 sheet = book.active
-sheet['A6'] = "не найден"
+coordinates = sheet.cell(1,6).coordinate
+sheet[coordinates] = "не найден"
 book.save("/home/igor/python/test.xlsx")

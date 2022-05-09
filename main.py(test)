@@ -1,30 +1,57 @@
 import openpyxl, re
 def creating_template(nazvanie,razmer,material):
     item = 0
-    item = re.sub('O-ring','Кольцо круглого сечения',nazvanie)
+    item = re.sub('O-ring cord','Шнур круглого сечения',nazvanie)
     if item == nazvanie:
         item = re.sub('Oil Seal','Манжета армированная',nazvanie)
     if item == nazvanie:
-        item = re.sub('cord','Шнур',nazvanie)
+        item = re.sub('O-ring','Кольцо круглого сечения',nazvanie)
     size = re.sub('x',r'\\D',razmer)
     size = re.sub('\*',r'\\D',razmer)
     return item + ' ' + size + ' ' + material
 def creating_dont_search_string():
-    global i_main
     global sheet_invoice
-    sheet_invoice[i_main][6].value = "не найден"#записываем в ячейку в колонке G
+    sheet_invoice[coordinates] = "не найден"#записываем в ячейку в колонке G
+    book_invoice.save("/home/igor/python/invoice.xlsx") #Сохраняем измененный файл
+#начало функции searching
+#функция принимает строку шаблон
+#функция ищет подходящую под шаблон ячейку и возвращает ее номер
+def searching(template):
+    #global i_main
+    r = 1
+    с = 3
+    #получаем количество строк на рабочем листе
+    i = sheet_DB.max_row
+    #запускаем цикл поиска подходящей строки
+    for row in range(1,i+1):
+        #обнуляем переменную match в каждой итерации
+        match = 0
+        #извлекаем из ячейки строку для сравнения
+        sheet_DB.cell(row=r, column=c).value
+        #сравниваем строку в таблице "DB.xlsx" с шаблоном template
+        match = re.search(template,sheet_DB.cell(row=r, column=c).value)
+        #если строка найдена match не равен 0, то запускаем функцию creating_string_in_template_file() создания строки в файле moysklad.xlsx
+        if match == 0:
+            #
+            creating_dont_search_string()
+        if match != 0:
+            #creating_string_in_template_file()
+            print('найдена строка')
+    # Close the workbook after reading
+    book_DB.close()
+
 r=1
 c=1
 i_main = 0 #счетчик итераций для фукции searching()
-coordinates=0
+coordinates = 0 #переменная в которой храниться координаты ячейки в формате-['A1']
 #открываем таблицу invoice.xlsx
-book_invoice = openpyxl.load_workbook("invoice.xlsx")#открываем файл invoice.xlsx на чтение и запись
+book_invoice = openpyxl.load_workbook("/home/igor/python/invoice.xlsx")#открываем файл invoice.xlsx на чтение и запись
 sheet_invoice = book_invoice.active
 #открываем таблицу DB.xlsx для поиска в ней нужной строки
 book_DB = openpyxl.load_workbook("DB.xlsx", read_only='true')
 sheet_DB = book_DB.active
 for row in range(1,sheet_invoice.max_row+1):#получаем количество строк на рабочем листе +1 чтобы учесть последнюю строку
-    
+    i_main = i_main + 1
     #обнуляем new_string
     new_string =0
     nazvanie = sheet_invoice.cell(row, column=c).value
@@ -34,8 +61,9 @@ for row in range(1,sheet_invoice.max_row+1):#получаем количеств
     #создаем шаблон-строку для поиска по БД на основе файла invoice.xlsx 
     template = creating_template(nazvanie,razmer,material)
     print(template)
+    print(type(template))
     #запускаем функцию поиска строки, которая соответствует шаблону-строке в файле DB.xlsx
-    #new_string = searching(template)
+    new_string = searching(template)
     #открываем на запись файл-шаблон для импорта счета в мой склад
     #запускаем функцию которая создаст шаблон из строки инвойса
     #передадим шаблон в функцию поиска в базе мой склад
@@ -45,5 +73,5 @@ for row in range(1,sheet_invoice.max_row+1):#получаем количеств
     else:
         #если строка не найдена запустим функцию записи состоянии не нашел
         creating_dont_search_string()
-i_main = i_main + 1
+        book_invoice.save("/home/igor/python/invoice.xlsx") #Сохраняем измененный файл
 print("Работа программы завершена")

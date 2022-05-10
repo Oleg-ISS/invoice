@@ -45,7 +45,8 @@ def searching(template):
 r=1
 c=1
 i_main = 0 #счетчик итераций для фукции searching()
-coordinates = 0 #переменная в которой храниться координаты ячейки в формате-['A1']
+new_forty_counter =1 #счетчик новых строк для файла template.xlsx
+coordinates = 0 #переменная в которой хранятся координаты ячейки в формате-['A1']
 #открываем таблицу invoice.xlsx
 book_invoice = openpyxl.load_workbook("invoice.xlsx")#открываем файл invoice.xlsx на чтение и запись
 sheet_invoice = book_invoice.active

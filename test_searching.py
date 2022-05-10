@@ -6,7 +6,7 @@ def searching(template):
     r = 1
     c = 4
     #получаем количество строк на рабочем листе
-    i = sheet_DB.max_row
+    i = 701 #sheet_DB.max_row
     #запускаем цикл поиска подходящей строки
     for row in range(1,i+1):
         #обнуляем переменную match в каждой итерации

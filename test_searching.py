@@ -25,5 +25,5 @@ def searching(template):
             #creating_string_in_template_file()
             print('найдена строка')
     # Close the workbook after reading
-    book_DB.close()
+    #book_DB.close()
 new_string = searching("Кольцо круглого сечения EPDM 102\D3,55")

@@ -28,8 +28,8 @@ def searching(template):
         #обнуляем переменную match в каждой итерации
         match = None
         #извлекаем из ячейки строку для сравнения
-        print(sheet_DB.cell(row, column=c).value)
-        print(row)
+        #print(sheet_DB.cell(row, column=c).value)
+        #print(row)
         #сравниваем строку в таблице "DB.xlsx" с шаблоном template
         match = re.search(template,sheet_DB.cell(row, column=c).value)
         print(match)
@@ -39,7 +39,7 @@ def searching(template):
             print('строка не найдена')
             '''
         if match != None:
-            #creating_string_in_template_file()
+            creating_string_in_template_file()
             print('найдена строка')
             return row
     if match == None:

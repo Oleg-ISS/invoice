@@ -18,9 +18,10 @@ def searching(template):
         match = re.search(template,sheet_DB.cell(row, column=c).value)
         print(match)
         #если строка найдена match не равен 0, то запускаем функцию creating_string_in_template_file() создания строки в файле moysklad.xlsx
-        if match == None:
+        /*if match == None:
             creating_dont_search_string()
             print('строка не найдена')
+            */
         if match != None:
             #creating_string_in_template_file()
             print('найдена строка')

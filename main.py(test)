@@ -1,4 +1,5 @@
 import openpyxl, re
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ОБЪЯВЛЯЕМ ФУНКЦИИ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2
 def creating_template(nazvanie,razmer,material):
     item = 0
     item = re.sub('O-ring cord','Шнур круглого сечения',nazvanie)

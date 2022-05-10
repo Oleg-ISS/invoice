@@ -47,12 +47,16 @@ c=1
 i_main = 0 #счетчик итераций для фукции searching()
 new_forty_counter =1 #счетчик новых строк для файла template.xlsx
 coordinates = 0 #переменная в которой хранятся координаты ячейки в формате-['A1']
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ открываем файлы @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #открываем таблицу invoice.xlsx
 book_invoice = openpyxl.load_workbook("invoice.xlsx")#открываем файл invoice.xlsx на чтение и запись
 sheet_invoice = book_invoice.active
 #открываем таблицу DB.xlsx для поиска в ней нужной строки
 book_DB = openpyxl.load_workbook("DB.xlsx", read_only='true')
 sheet_DB = book_DB.active
+#открываем таблицу template.xlsx
+book_template = openpyxl.load_workbook("DB.xlsx", read_only='true')
+sheet_template = book_template.active
 for row in range(1,sheet_invoice.max_row+1):#получаем количество строк на рабочем листе +1 чтобы учесть последнюю строку
     i_main = i_main + 1
     #обнуляем new_string

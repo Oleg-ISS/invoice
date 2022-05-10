@@ -12,7 +12,7 @@ def creating_template(nazvanie,razmer,material):
 def creating_dont_search_string():
     global sheet_invoice
     sheet_invoice[coordinates] = "не найден"#записываем в ячейку в колонке G
-    book_invoice.save("/home/igor/python/invoice.xlsx") #Сохраняем измененный файл
+    book_invoice.save("invoice.xlsx") #Сохраняем измененный файл
 #начало функции searching
 #функция принимает строку шаблон
 #функция ищет подходящую под шаблон ячейку и возвращает ее номер
@@ -47,7 +47,7 @@ c=1
 i_main = 0 #счетчик итераций для фукции searching()
 coordinates = 0 #переменная в которой храниться координаты ячейки в формате-['A1']
 #открываем таблицу invoice.xlsx
-book_invoice = openpyxl.load_workbook("/home/igor/python/invoice.xlsx")#открываем файл invoice.xlsx на чтение и запись
+book_invoice = openpyxl.load_workbook("invoice.xlsx")#открываем файл invoice.xlsx на чтение и запись
 sheet_invoice = book_invoice.active
 #открываем таблицу DB.xlsx для поиска в ней нужной строки
 book_DB = openpyxl.load_workbook("DB.xlsx", read_only='true')
@@ -75,5 +75,5 @@ for row in range(1,sheet_invoice.max_row+1):#получаем количеств
     else:
         #если строка не найдена запустим функцию записи состоянии не нашел
         creating_dont_search_string()
-        book_invoice.save("/home/igor/python/invoice.xlsx") #Сохраняем измененный файл
+        book_invoice.save("invoice.xlsx") #Сохраняем измененный файл
 print("Работа программы завершена")
